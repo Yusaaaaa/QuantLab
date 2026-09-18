@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+build/
+dist/
+.env
+.DS_Store
+data/raw/*
+!data/raw/.gitkeep
+data/cache/*
+!data/cache/.gitkeep
+runs/*
+!runs/.gitkeep
+.wheelhouse/
+.venv-clean/
+validation/
+
+.ruff_cache/
+
+# Local research content is intentionally excluded from GitHub.
+/run/
+/runs/
+/strategies/
+/factors/

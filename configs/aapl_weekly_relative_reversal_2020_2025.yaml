@@ -1,0 +1,55 @@
+# Prior Friday cash baseline; actual first entry 2020-01-06. SPY is an observable benchmark, not a position.
+backtest:
+  start_date: '2020-01-03'
+  end_date: '2025-12-31'
+  initial_cash: 100000
+  base_currency: USD
+data:
+  provider: parquet_local
+  path: ../data/raw/yahoo_aapl_tsla_spy_20200103_20251231.parquet
+  frequency: 1d
+  price_mode: adjusted
+  benchmark: SPY
+  source: Yahoo Finance via yfinance 0.2.66, actual historical AAPL/TSLA/SPY daily
+    OHLCV; auto_adjust=False; actions=True; downloaded input frozen locally. January
+    3, 2020 is the cash preparation baseline.
+universe:
+  symbols:
+  - AAPL
+  source: fixed_list
+strategy:
+  path: ../strategies/aapl_weekly_relative_reversal.py
+  params:
+    start_date: '2020-01-06'
+    end_date: '2025-12-31'
+    threshold: 0.01
+  rebalance_schedule: daily
+  factor_paths:
+    factors.return_spread: ../factors/return_spread.py
+execution:
+  decision_time: close
+  timing: next_open
+  allow_fractional_shares: false
+  sizing: decision_relative
+commission:
+  model: per_share
+  per_share: 0.005
+  minimum: 1.0
+slippage:
+  model: bps
+  bps: 5.0
+portfolio:
+  allow_short: false
+  allow_negative_cash: false
+  max_position_weight: 1.0
+  max_gross_exposure: 1.0
+analytics:
+  trading_days: 252
+  risk_free_rate: 0.0
+  rolling_window: 63
+report:
+  enabled: true
+  open_after_run: false
+  runs_dir: ../runs
+reproducibility:
+  random_seed: 42

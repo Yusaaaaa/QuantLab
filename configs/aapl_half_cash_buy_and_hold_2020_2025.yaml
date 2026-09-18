@@ -1,0 +1,52 @@
+# Comparison baseline: same initial half-cash purchase, then hold unchanged.
+backtest:
+  start_date: '2020-01-03'
+  end_date: '2025-12-31'
+  initial_cash: 100000
+  base_currency: USD
+data:
+  provider: parquet_local
+  path: ../data/raw/yahoo_aapl_tsla_spy_20200103_20251231.parquet
+  frequency: 1d
+  price_mode: adjusted
+  benchmark: SPY
+  source: Yahoo Finance via yfinance 0.2.66, actual historical AAPL/TSLA/SPY daily
+    OHLCV; auto_adjust=False; actions=True; downloaded input frozen locally. January
+    3, 2020 is the cash preparation baseline.
+universe:
+  symbols:
+  - AAPL
+  source: fixed_list
+strategy:
+  path: ../strategies/fixed_weight_buy_and_hold.py
+  params:
+    weights:
+      AAPL: 0.5
+  rebalance_schedule: daily
+execution:
+  decision_time: close
+  timing: next_open
+  allow_fractional_shares: false
+  sizing: decision_relative
+commission:
+  model: per_share
+  per_share: 0.005
+  minimum: 1.0
+slippage:
+  model: bps
+  bps: 5.0
+portfolio:
+  allow_short: false
+  allow_negative_cash: false
+  max_position_weight: 1.0
+  max_gross_exposure: 1.0
+analytics:
+  trading_days: 252
+  risk_free_rate: 0.0
+  rolling_window: 63
+report:
+  enabled: true
+  open_after_run: false
+  runs_dir: ../runs
+reproducibility:
+  random_seed: 42
