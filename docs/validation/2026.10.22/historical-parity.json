@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "reference_run": "20260921_131615_aapl_weekly_relative_reversal_cfa6bf",
+  "sessions": 1507,
+  "fills": 198,
+  "max_equity_error": 2.9103830456733704e-11,
+  "final_equity": 202980.91032714577,
+  "metrics": {
+    "total_return": 1.0298091032714578,
+    "cagr": 0.12538482682250576,
+    "ann_vol": 0.17906300743263898,
+    "sharpe": 0.7508090882820326,
+    "sortino": 1.1401990843986978,
+    "max_drawdown": -0.22807238611649405,
+    "max_dd_duration_days": 1107,
+    "calmar": 0.5497589118853788,
+    "turnover_ann": 8.279940599534644,
+    "avg_gross_exposure": 0.45286262754323053,
+    "avg_cash_weight": 0.5471373724567695,
+    "n_orders": 198,
+    "n_fills": 198,
+    "total_commission": 276.825,
+    "total_slippage_cost": 3550.159400745952,
+    "total_transaction_cost": 3826.984400745952,
+    "beta": 0.6111182699494065,
+    "alpha_ann": 0.03569603550290667,
+    "tracking_error": 0.14997573544460113,
+    "information_ratio": -0.18096592404870582
+  }
+}

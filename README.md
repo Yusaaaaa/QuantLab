@@ -1,4 +1,14 @@
-# US Equity Quant Lab
+# QuantLab 2026.10.22
+
+本版本包含 Python 日线回测引擎、Tauri 桌面工作台、现有简单策略/因子、离线测试及中英文手册。
+
+- 版本：`2026.10.22`；Git 标签：`v2026.10.22`。
+- [项目本体与独立研究的边界](PROJECT_SCOPE.md)
+- [本次审查与验证记录](AUDIT_2026.10.22.md)
+- [版本说明](RELEASE_NOTES.md)
+- [中文手册](project_manual/cn/quantlab_manual_cn.pdf) / [English manual](project_manual/en/quantlab_manual_en.pdf)
+
+GitHub 版本包含 `strategies/` 和 `factors/`。`researchProject/` 独立研究、真实行情、运行档案、环境和构建产物留在本地；克隆后先生成合成 sample，再运行基础示例。指向真实历史 Parquet 的 2020–2025 配置需要自行准备对应数据，不能直接在空数据目录运行。桌面 App 也需本地构建或使用现有构建副本，并依赖工作区 Python 环境。
 
 本地、可审计、可复现的美股日频研究回测系统。V1 已实现数据 → 策略 → 成交 →
 账本 → 指标 → HTML 报告 → 实验归档。规格见 [工作文档 V4](us_equity_quant_lab_codex_workdoc_v4.md)。
@@ -7,10 +17,10 @@
 ## 安装
 
 Python 3.12+，建议新建虚拟环境。已验证环境为 Python 3.12.14 / macOS arm64。
-本机 `.venv` 已准备好；系统默认 Python 3.9 不适用。
+Python 3.9 不适用；克隆后需创建自己的 `.venv`。
 
 ```bash
-cd /Users/yusa/ChatGPTWorkSpace/QuantLab
+cd /path/to/QuantLab
 python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.lock
@@ -27,7 +37,7 @@ NumPy 限制为 `<2.4`，避开 pandas 2.x 与 NumPy 2.5 的 timedelta 弃用兼
 ## 30 秒离线 quick start（已完成安装后）
 
 ```bash
-cd /Users/yusa/ChatGPTWorkSpace/QuantLab
+cd /path/to/QuantLab
 source .venv/bin/activate
 python scripts/make_sample_data.py
 quantlab strategies validate strategies/fixed_weight_buy_and_hold.py --config configs/examples/fixed_weight_buy_and_hold.yaml
@@ -208,11 +218,9 @@ Decision/Execution Time、Required Data、Parameters、Look-ahead Protection、K
 - 同版本数据和代码可复现；不同平台/依赖的浮点运算不保证逐字节相同。
 - 因子目录仅包含用户明确批准的研究特征；不自动添加策略或优化逻辑。
 
-## V2 roadmap（当前不实现）
+## 后续扩展与当前边界
 
-用户确认后的研究策略和因子、样本外验证、成本/参数/时期敏感性、walk-forward、
-point-in-time universe、高级成交模型在 V1 后再讨论。实时/模拟交易、broker、
-web dashboard、数据库、分钟数据、参数搜索、Docker/Kubernetes 均不属于本次实现。
+当前已有用户批准的简单策略/因子、桌面界面；后续独立研究位于本地 `researchProject/`，不属于本次发布的运行时。通用样本外验证、walk-forward、point-in-time universe、高级成交模型、实盘/模拟券商、数据库、分钟数据和自动参数搜索尚未作为本体功能实现。
 
 本项目用于研究与工程验证，不构成投资建议；历史或合成数据结果不保证未来表现。
 
@@ -221,7 +229,7 @@ web dashboard、数据库、分钟数据、参数搜索、Docker/Kubernetes 均�
 
 策略：`strategies/weekly_equal_weight_aapl_tsla.py`；配置：`configs/weekly_equal_weight_aapl_tsla_2020_2025.yaml`。
 本金 $100,000；2020-01-06 首次建仓；每周一开盘恢复各 50% 的目标，周一休市顺延；结束于 2025-12-31 收盘。
-使用 Yahoo Finance 真实历史复权数据，已经下载至配置指定的本地 Parquet，回测时无需联网。
+原本地实验使用 Yahoo Finance 真实历史复权数据；该 Parquet 不随仓库分发。准备好配置指定的本地文件后，回测无需联网。
 费用沿用每股 $0.005 / 最低 $1，滑点 5 bps。2020-01-03 是准备信号用的纯现金基线，
 标准 CAGR 也以此为起点；股数仍是整数复权研究单位，具体限制见前文。
 
@@ -263,3 +271,7 @@ quantlab backtest run --config configs/aapl_half_cash_buy_and_hold_2020_2025.yam
 每周因子起止日期、双方收益率、收益差和操作原因。策略只返回权重，不管理账户。
 MarketDataView 现在可观察配置股票池加基准的历史，target weights 仍只能包含可交易 universe。
 `scripts/audit_weekly_relative_reversal.py <run_dir>` 可独立重算本次规则的全部信号、成交和权益。
+
+## 桌面工作台
+
+Tauri 桌面 App 支持双主题、策略与因子编辑、配置、回测与报告。打开 `dist/QuantLab.app`；操作和构建见 [桌面使用说明](desktop/README.md)。

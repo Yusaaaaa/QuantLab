@@ -1,0 +1,23 @@
+{
+  "legacy_input_sha256": "passed",
+  "sorted_symbol_relabeling_invariance": "passed for SPY/GLD and TLT/EFA, three calendars each",
+  "slice_parity": [
+    {
+      "pair": "SPY/TLT",
+      "mode": "Weekly",
+      "slice_equity_max_error": 0.0
+    },
+    {
+      "pair": "SPY/GLD",
+      "mode": "Monthly",
+      "slice_equity_max_error": 0.0
+    },
+    {
+      "pair": "AAPL/TSLA",
+      "mode": "Quarterly",
+      "slice_equity_max_error": 0.0
+    }
+  ],
+  "all_matched_windows_have_five_policies": "passed",
+  "policy_window_rows": 5940
+}

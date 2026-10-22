@@ -1,0 +1,9 @@
+{
+  "legacy_input_sha256": "passed",
+  "direct_monthly_holdings_cagr_error": 1.1102230246251565e-16,
+  "historical_identity": "passed",
+  "permutation_daily_and_hold_endpoint_invariance": "passed",
+  "synthetic_endpoint_controls": "passed",
+  "gbm_cell_identity": "passed",
+  "model_cells": 63
+}

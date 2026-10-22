@@ -1,0 +1,9 @@
+Processing /private/tmp/quantlab-release-20261022
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: us-equity-quant-lab
+  Building wheel for us-equity-quant-lab (pyproject.toml): started
+  Building wheel for us-equity-quant-lab (pyproject.toml): finished with status 'done'
+  Created wheel for us-equity-quant-lab: filename=us_equity_quant_lab-2026.10.22-py3-none-any.whl size=57173 sha256=ab6746f7f19ff9349ed485e153002f4ccebd29417cef418925ad03e4f60f437c
+  Stored in directory: /private/var/folders/rn/g69y_2m155jfcb3_8065d4lc0000gn/T/pip-ephem-wheel-cache-zxgmiiu9/wheels/49/89/d1/9981ab20700987e5fc477047c6ea8f04a5938d09bdd0cf5228
+Successfully built us-equity-quant-lab

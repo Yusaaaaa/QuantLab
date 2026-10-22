@@ -1,0 +1,13 @@
+
+> quantlab-desktop@2026.10.22 build
+> tsc && vite build
+
+vite v6.4.5 building for production...
+transforming...
+✓ 2194 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.42 kB │ gzip:   0.30 kB
+dist/assets/index-DHT9nHIq.css     20.87 kB │ gzip:   5.39 kB
+dist/assets/index-B4J8AA0g.js   1,040.82 kB │ gzip: 328.13 kB
+✓ built in 1.94s

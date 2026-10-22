@@ -1,3 +1,4 @@
+from pathlib import Path
 import pytest
 from typer.testing import CliRunner
 
@@ -8,7 +9,11 @@ runner = CliRunner()
 
 
 def test_package_version():
-    assert __version__ == "0.1.0"
+    import tomllib
+    root = Path(__file__).resolve().parents[1]
+    project = tomllib.loads((root / "pyproject.toml").read_text())
+    assert __version__ == project["project"]["version"]
+    assert __version__ == (root / "VERSION").read_text().strip()
 
 
 @pytest.mark.parametrize(

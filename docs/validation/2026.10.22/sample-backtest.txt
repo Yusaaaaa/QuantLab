@@ -1,0 +1,12 @@
+/Users/yusa/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/rn/g69y_2m155jfcb3_8065d4lc0000gn/T/matplotlib-tp2276rs because there was an issue with the default path (/Users/yusa/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+2026-10-22 16:31:48,149 INFO Run start 20261022_083148_fixed_weight_buy_and_hold_ecf163
+2026-10-22 16:31:48,265 INFO Strategy validated: fixed_weight_buy_and_hold 1.0.0
+2026-10-22 16:31:49,704 WARNING Adjusted research units: all OHLC scaled by adj_close/raw_close; dividends/splits are not posted separately; volume remains provider volume
+2026-10-22 16:31:49,704 WARNING Fixed-list universe; no point-in-time constituent database. Symbol selection may introduce survivorship/selection bias.
+2026-10-22 16:31:49,823 INFO Report generation
+2026-10-22 16:31:50,361 INFO Run end success elapsed_seconds=2.207
+Run saved: /private/tmp/quantlab-release-20261022/runs/20261022_083148_fixed_weight_buy_and_hold_ecf163
+Final equity: $109,083.15
+Report: /private/tmp/quantlab-release-20261022/runs/20261022_083148_fixed_weight_buy_and_hold_ecf163/report.html

@@ -37,3 +37,9 @@ Approved strategy: aapl_weekly_relative_reversal.py (weekly calculation used).
 Factor dependencies must be explicitly bound, linted and archived with the strategy.
 For this rule, decision_relative sizing preserves cash/share fractions across gaps;
 standard target_weights execution remains unchanged. No other factors are authorized.
+
+
+Release 2026.10.22: the user authorized publishing the current simple strategies
+and factor with the application. Independent researchProject/ code/data/results
+remain separate from application release content. This does not authorize new
+research factors or silent changes to strategy semantics. See PROJECT_SCOPE.md.

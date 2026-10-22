@@ -1,0 +1,1 @@
+Validated fixed_weight_buy_and_hold 1.0.0

@@ -1,0 +1,22 @@
+{
+  "01_aapl_tsla_rebalancing": {
+    "tracked": 100,
+    "missing": [],
+    "changed": []
+  },
+  "02_threshold_partial_rebalancing": {
+    "tracked": 100,
+    "missing": [],
+    "changed": []
+  },
+  "03_time_and_asset_robustness": {
+    "tracked": 48,
+    "missing": [],
+    "changed": []
+  },
+  "04_rebalancing_mechanisms": {
+    "tracked": 39,
+    "missing": [],
+    "changed": []
+  }
+}

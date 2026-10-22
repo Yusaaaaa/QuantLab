@@ -15,12 +15,26 @@ runs/*
 !runs/.gitkeep
 .wheelhouse/
 .venv-clean/
-validation/
+/validation/
 
 .ruff_cache/
 
-# Local research content is intentionally excluded from GitHub.
+# Desktop generated state
+.quantlab-desktop/
+desktop/node_modules/
+desktop/dist/
+desktop/src-tauri/target/
+
+# Independent studies are retained locally, outside the application release.
+/researchProject/
 /run/
-/runs/
-/strategies/
-/factors/
+/data/processed/*
+!/data/processed/.gitkeep
+/data/metadata/*
+!/data/metadata/.gitkeep
+/desktop/src-tauri/gen/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz

@@ -1,0 +1,7 @@
+{
+  "legacy_input_sha256": "passed",
+  "zero_band_full_correction_equals_daily": "passed",
+  "future_close_perturbation_with_nonzero_bands": "passed; targets through changed session open identical, later targets change",
+  "full_grid_rows": 415,
+  "selected_row": 151
+}
